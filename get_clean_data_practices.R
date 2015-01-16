@@ -30,7 +30,7 @@ GetCleanDataPractices <- function(input = "data//raw//Consolidacao dos dados v1.
                 "P07.relev.portifolio", "P07.exist.portifolio", 
                 "P08.relev.aval.uso", "P08.exist.aval.uso", 
                 "P09.relev.envolvimento", "P09.exist.envolvimento", 
-                "P10.relev.sis.com.trans", "p10.relev.sis.com.trans")
+                "P10.relev.sis.com.trans", "P10.exist.sis.com.trans")
     
   # Ler a planilha das entrevistas
   interview <- read.xlsx(file = input, sheetIndex = sheet.idx,
@@ -72,10 +72,7 @@ GetCleanDataPractices <- function(input = "data//raw//Consolidacao dos dados v1.
   # Remover ocorrência do SISP
   practices <- practices[practices$sigla.entidade != "SISP", ]    
     
-  
   ### Passo 3: Gravar os dados no arquivo de saída
   write.table(practices, file = output, row.names = FALSE, sep = ";")
-  
-  return(practices)
 }
     
